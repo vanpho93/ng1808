@@ -9,8 +9,18 @@ import { Component } from '@angular/core';
 export class WordComponent {
     en = 'hello';
     vn = 'xin chào';
+    views = 10;
+    isMemorized = false;
 
     showInfo() {
         alert(`Ban dang hoc tu ${this.en}`);
+    }
+
+    incrViews() {
+        this.views++;
+    }
+
+    toggleMemorized() {
+        this.isMemorized = !this.isMemorized;
     }
 }
