@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-word',
@@ -9,6 +9,7 @@ import { Component, Input } from '@angular/core';
 export class WordComponent {
     @Input() en;
     @Input() vn;
+    @Output() onRemoveWord = new EventEmitter<string>();
     views = 10;
     isMemorized = false;
 
@@ -22,5 +23,9 @@ export class WordComponent {
 
     toggleMemorized() {
         this.isMemorized = !this.isMemorized;
+    }
+
+    remove() {
+        this.onRemoveWord.emit(this.en);
     }
 }

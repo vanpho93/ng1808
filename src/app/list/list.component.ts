@@ -21,13 +21,13 @@ import { Component } from '@angular/core';
       <br>
       <button class="btn btn-success" (click)="add()">Show</button>
     </div>
-    <div *ngFor="let word of words">
-      <h3>{{ word.en }}</h3>
-      <p>{{ word.vn }}</p>
-      <button class="btn btn-danger" (click)="removeByEn(word.en)">
-        Remove
-      </button>
-    </div>
+    <app-word
+      *ngFor="let word of words"
+      [en]="word.en"
+      [vn]="word.vn"
+      (onRemoveWord)="removeByEn($event)"
+    >
+    </app-word>
     </div>
   `
 })
@@ -41,6 +41,7 @@ export class ListComponent {
     { en: 'line', vn: 'dong' },
   ];
   removeByEn(en) {
+    console.log(en);
     const index = this.words.findIndex(word => word.en === en);
     this.words.splice(index, 1);
   }
@@ -62,5 +63,11 @@ export class ListComponent {
   [en]="word.en"
   [vn]="word.vn">
 </app-word>
-
+    <div *ngFor="let word of words">
+      <h3>{{ word.en }}</h3>
+      <p>{{ word.vn }}</p>
+      <button class="btn btn-danger" (click)="removeByEn(word.en)">
+        Remove
+      </button>
+    </div>
 */
