@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-word',
@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class WordComponent {
-    en = 'hello';
-    vn = 'xin chào';
+    @Input() en;
+    @Input() vn;
     views = 10;
     isMemorized = false;
 
