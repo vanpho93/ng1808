@@ -5,5 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './my-input.component.html'
 })
 export class MyInputComponent {
+  en = '';
 
+  onShow() {
+    alert(this.en);
+    this.en = '';
+  }
 }

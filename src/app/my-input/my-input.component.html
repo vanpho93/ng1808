@@ -1,5 +1,9 @@
 <div style="padding: 10px; width: 300px">
-  <input class="form-control" placeholder="English word">
+  <input 
+    class="form-control"
+    placeholder="English word"
+    [(ngModel)]="en"
+  >
   <br>
-  <button class="btn btn-success">Show</button>
+  <button class="btn btn-success" (click)="onShow()">Show</button>
 </div>

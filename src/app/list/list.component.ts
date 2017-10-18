@@ -6,6 +6,21 @@ import { Component } from '@angular/core';
     <img [src]="imageSrc" />
     <img src="assets/a.png" />
     <div style="padding: 5px">
+    <div style="width: 300px">
+    <input
+      class="form-control"
+      placeholder="English word"
+      [(ngModel)]="txtEn"
+    >
+    <br>
+    <input
+      class="form-control"
+      placeholder="Vietnamese word"
+      [(ngModel)]="txtVn"
+    >
+    <br>
+    <button class="btn btn-success" (click)="add()">Show</button>
+    </div>
     <div *ngFor="let word of words">
       <h3>{{ word.en }}</h3>
       <p>{{ word.vn }}</p>
@@ -17,6 +32,8 @@ import { Component } from '@angular/core';
   `
 })
 export class ListComponent {
+  txtEn = '';
+  txtVn = '';
   imageSrc = 'https://www.google.com.vn/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png';
   words = [
     { en: 'hello', vn: 'xin chao' },
@@ -26,6 +43,10 @@ export class ListComponent {
   removeByEn(en) {
     const index = this.words.findIndex(word => word.en === en);
     this.words.splice(index, 1);
+  }
+
+  add() {
+
   }
 }
 
