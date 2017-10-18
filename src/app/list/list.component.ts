@@ -7,19 +7,19 @@ import { Component } from '@angular/core';
     <img src="assets/a.png" />
     <div style="padding: 5px">
     <div style="width: 300px">
-    <input
-      class="form-control"
-      placeholder="English word"
-      [(ngModel)]="txtEn"
-    >
-    <br>
-    <input
-      class="form-control"
-      placeholder="Vietnamese word"
-      [(ngModel)]="txtVn"
-    >
-    <br>
-    <button class="btn btn-success" (click)="add()">Show</button>
+      <input
+        class="form-control"
+        placeholder="English word"
+        [(ngModel)]="txtEn"
+      >
+      <br>
+      <input
+        class="form-control"
+        placeholder="Vietnamese word"
+        [(ngModel)]="txtVn"
+      >
+      <br>
+      <button class="btn btn-success" (click)="add()">Show</button>
     </div>
     <div *ngFor="let word of words">
       <h3>{{ word.en }}</h3>
@@ -46,7 +46,12 @@ export class ListComponent {
   }
 
   add() {
-
+    this.words.push({
+      en: this.txtEn,
+      vn: this.txtVn
+    });
+    this.txtEn = '';
+    this.txtVn = '';
   }
 }
 
