@@ -9,6 +9,7 @@ import { MyInputComponent } from './my-input/my-input.component';
 import { ChildComponent } from './playground/child.component';
 import { ParentComponent } from './playground/parent.component';
 import { WordFormComponent } from './word-form/word-form.component';
+import { WordFilterComponent } from './word-filter/word-filter.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { WordFormComponent } from './word-form/word-form.component';
     MyInputComponent,
     ChildComponent,
     ParentComponent,
-    WordFormComponent
+    WordFormComponent,
+    WordFilterComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,12 @@ import { FilterStatus } from '../models/filterStatus';
   selector: 'app-list',
   template: `
     <br />
-    <button class="btn btn-primary">V</button>
-    <button class="btn btn-primary">X</button>
-    <button class="btn btn-primary">A</button>
+    <app-word-filter (onChangeStatus)="onChangeStatus($event)"></app-word-filter>
+    <select class="form-control" style="width: 300px; margin: 5px">
+      <option value="">SHOW ALL</option>
+      <option value="">SHOW MEMORIZED</option>
+      <option value="">SHOW FORGET</option>
+    </select>
     <div style="padding: 5px">
     <app-word-form (onAddNewWord)="onAddNewWord($event)"></app-word-form>
     <app-word
@@ -40,5 +43,9 @@ export class ListComponent {
   onAddNewWord(wordObj: Word) {
     const { vn, en } = wordObj;
     this.words.push({ en, vn });
+  }
+
+  onChangeStatus(filterValue) {
+    this.filterStatus = filterValue;
   }
 }
