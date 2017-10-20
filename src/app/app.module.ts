@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { MyInputComponent } from './my-input/my-input.component';
 import { ChildComponent } from './playground/child.component';
 import { ParentComponent } from './playground/parent.component';
+import { WordFormComponent } from './word-form/word-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ParentComponent } from './playground/parent.component';
     ListComponent,
     MyInputComponent,
     ChildComponent,
-    ParentComponent
+    ParentComponent,
+    WordFormComponent
   ],
   imports: [
     BrowserModule,

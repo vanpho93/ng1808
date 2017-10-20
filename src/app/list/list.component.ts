@@ -6,21 +6,7 @@ import { Component } from '@angular/core';
     <img [src]="imageSrc" />
     <img src="assets/a.png" />
     <div style="padding: 5px">
-    <div style="width: 300px">
-      <input
-        class="form-control"
-        placeholder="English word"
-        [(ngModel)]="txtEn"
-      >
-      <br>
-      <input
-        class="form-control"
-        placeholder="Vietnamese word"
-        [(ngModel)]="txtVn"
-      >
-      <br>
-      <button class="btn btn-success" (click)="add()">Show</button>
-    </div>
+    <app-word-form (addNewWord)="add($event)"></app-word-form>
     <app-word
       *ngFor="let word of words"
       [en]="word.en"
@@ -46,13 +32,9 @@ export class ListComponent {
     this.words.splice(index, 1);
   }
 
-  add() {
-    this.words.push({
-      en: this.txtEn,
-      vn: this.txtVn
-    });
-    this.txtEn = '';
-    this.txtVn = '';
+  add(wordObj) {
+    const { vn, en } = wordObj;
+    this.words.push({ en, vn });
   }
 }
 
