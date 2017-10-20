@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { Word } from '../models/word';
 
+enum FilterStatus {
+  ShowAll, ShowMemorized, ShowForget
+}
+
 @Component({
   selector: 'app-list',
   template: `
-    <img [src]="imageSrc" />
-    <img src="assets/a.png" />
+    <br />
+    <button class="btn btn-primary">V</button>
+    <button class="btn btn-primary">X</button>
+    <button class="btn btn-primary">A</button>
     <div style="padding: 5px">
     <app-word-form (onAddNewWord)="onAddNewWord($event)"></app-word-form>
     <app-word
@@ -18,14 +24,13 @@ import { Word } from '../models/word';
     </div>
   `
 })
+
 export class ListComponent {
-  txtEn = '';
-  txtVn = '';
-  imageSrc = 'https://www.google.com.vn/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png';
+  filterStatus = FilterStatus.ShowMemorized;
   words: Word[] = [
-    { en: 'hello', vn: 'xin chao' },
-    { en: 'space', vn: 'khoang cach' },
-    { en: 'line', vn: 'dong' },
+    { en: 'hello', vn: 'xin chao', isMemorized: true },
+    { en: 'space', vn: 'khoang cach', isMemorized: true },
+    { en: 'line', vn: 'dong', isMemorized: false }
   ];
   removeByEn(en) {
     console.log(en);
