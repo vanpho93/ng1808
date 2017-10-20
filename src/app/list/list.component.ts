@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <img [src]="imageSrc" />
     <img src="assets/a.png" />
     <div style="padding: 5px">
-    <app-word-form (addNewWord)="add($event)"></app-word-form>
+    <app-word-form (onAddNewWord)="onAddNewWord($event)"></app-word-form>
     <app-word
       *ngFor="let word of words"
       [en]="word.en"
@@ -32,7 +32,7 @@ export class ListComponent {
     this.words.splice(index, 1);
   }
 
-  add(wordObj) {
+  onAddNewWord(wordObj) {
     const { vn, en } = wordObj;
     this.words.push({ en, vn });
   }
