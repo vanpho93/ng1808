@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Word } from '../models/word';
-
-enum FilterStatus {
-  ShowAll, ShowMemorized, ShowForget
-}
+import { FilterStatus } from '../models/filterStatus';
 
 @Component({
   selector: 'app-list',
@@ -18,6 +15,8 @@ enum FilterStatus {
       *ngFor="let word of words"
       [en]="word.en"
       [vn]="word.vn"
+      [isMemorized]="word.isMemorized"
+      [filterStatus]="filterStatus"
       (onRemoveWord)="removeByEn($event)"
     >
     </app-word>
@@ -26,7 +25,7 @@ enum FilterStatus {
 })
 
 export class ListComponent {
-  filterStatus = FilterStatus.ShowMemorized;
+  filterStatus = FilterStatus.ShowAll;
   words: Word[] = [
     { en: 'hello', vn: 'xin chao', isMemorized: true },
     { en: 'space', vn: 'khoang cach', isMemorized: true },

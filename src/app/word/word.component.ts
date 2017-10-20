@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FilterStatus } from '../models/filterStatus';
 
 @Component({
     selector: 'app-word',
@@ -7,11 +8,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class WordComponent {
-    @Input() en;
-    @Input() vn;
+    @Input() en: string;
+    @Input() vn: string;
+    @Input() isMemorized: boolean;
+    @Input() filterStatus: FilterStatus;
     @Output() onRemoveWord = new EventEmitter<string>();
     views = 10;
-    isMemorized = false;
 
     showInfo() {
         alert(`Ban dang hoc tu ${this.en}`);
@@ -27,5 +29,11 @@ export class WordComponent {
 
     remove() {
         this.onRemoveWord.emit(this.en);
+    }
+
+    get showStatus(): boolean {
+        if (this.filterStatus === FilterStatus.ShowAll) return true;
+        if (this.filterStatus === FilterStatus.ShowMemorized) return this.isMemorized;
+        return !this.isMemorized;
     }
 }

@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="showStatus">
     <h3>{{ en }}</h3>
     <p style="color: red" *ngIf="!isMemorized">{{ vn }}</p>
     <p *ngIf="isMemorized">-----</p>
