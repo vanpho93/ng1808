@@ -6,14 +6,18 @@ import { FilterStatus } from '../models/filterStatus';
   selector: 'app-list',
   template: `
     <br />
-    <app-word-filter
+    <!-- <app-word-filter
       (onChangeStatus)="onChangeStatus($event)"
       [filterStatus]=[filterStatus]
-    ></app-word-filter>
-    <select class="form-control" style="width: 300px; margin: 5px">
-      <option value="">SHOW ALL</option>
-      <option value="">SHOW MEMORIZED</option>
-      <option value="">SHOW FORGET</option>
+    ></app-word-filter> -->
+    <select
+      class="form-control"
+      style="width: 300px;
+      margin: 5px" [(ngModel)]="filterStatus"
+    >
+      <option value="0">SHOW ALL</option>
+      <option value="2">SHOW MEMORIZED</option>
+      <option value="1">SHOW FORGET</option>
     </select>
     <div style="padding: 5px">
     <app-word-form (onAddNewWord)="onAddNewWord($event)"></app-word-form>

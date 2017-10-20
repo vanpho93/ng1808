@@ -32,8 +32,8 @@ export class WordComponent {
     }
 
     get showStatus(): boolean {
-        if (this.filterStatus === FilterStatus.ShowAll) return true;
-        if (this.filterStatus === FilterStatus.ShowMemorized) return this.isMemorized;
+        if (this.filterStatus == FilterStatus.ShowAll) return true;
+        if (this.filterStatus == FilterStatus.ShowMemorized) return this.isMemorized;
         return !this.isMemorized;
     }
 }
