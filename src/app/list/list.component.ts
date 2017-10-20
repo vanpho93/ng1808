@@ -6,7 +6,10 @@ import { FilterStatus } from '../models/filterStatus';
   selector: 'app-list',
   template: `
     <br />
-    <app-word-filter (onChangeStatus)="onChangeStatus($event)"></app-word-filter>
+    <app-word-filter
+      (onChangeStatus)="onChangeStatus($event)"
+      [filterStatus]=[filterStatus]
+    ></app-word-filter>
     <select class="form-control" style="width: 300px; margin: 5px">
       <option value="">SHOW ALL</option>
       <option value="">SHOW MEMORIZED</option>

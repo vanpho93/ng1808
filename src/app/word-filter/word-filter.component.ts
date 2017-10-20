@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FilterStatus } from '../models/filterStatus';
 @Component({
   selector: 'app-word-filter',
@@ -8,6 +8,7 @@ import { FilterStatus } from '../models/filterStatus';
 
 export class WordFilterComponent {
   @Output() onChangeStatus = new EventEmitter<FilterStatus>();
+  @Input() filterStatus: FilterStatus;
 
   changeStatus(filterStatus: FilterStatus) {
     this.onChangeStatus.emit(filterStatus);
